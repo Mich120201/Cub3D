@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   sort.h                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 12:49:47 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 11:00:45 by mich             ###   ########.fr       */
+/*   Created: 2023/05/16 13:58:00 by mich              #+#    #+#             */
+/*   Updated: 2023/05/16 15:03:00 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#ifndef SORT_H
+# define SORT_H
 
 # include "src.h"
 
-/*map.c*/
-void	map_init(t_game *game);
+/*sort.c*/
+void	sort_close(t_game *game, int *order, double *dist);
+void	sort_sprites(int *order, double *dist, int amount);
 
 #endif

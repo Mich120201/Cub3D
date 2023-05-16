@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   cast_sprite.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 12:49:47 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 11:00:45 by mich             ###   ########.fr       */
+/*   Created: 2023/05/16 13:53:03 by mich              #+#    #+#             */
+/*   Updated: 2023/05/16 15:11:47 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#ifndef CAST_SPRITE_H
+# define CAST_SPRITE_H
 
 # include "src.h"
 
-/*map.c*/
-void	map_init(t_game *game);
+/*cast_sprite.c*/
+void	sprites_cast(t_game *game);
 
 #endif

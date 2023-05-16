@@ -3,34 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   file.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 12:50:08 by mich              #+#    #+#             */
-/*   Updated: 2023/05/09 11:34:15 by mvolpi           ###   ########.fr       */
+/*   Updated: 2023/05/16 15:07:54 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "control.h"
-
-int	ft_strend_cmp(char *name, char *end)
-{
-	size_t	name_len;
-	size_t	ext_len;
-
-	name_len = ft_strlen(name);
-	ext_len = ft_strlen(end);
-	if (name_len <= ext_len)
-		return (0);
-	name += name_len - ext_len;
-	while (*name)
-	{
-		if (*name != *end)
-			return (0);
-		name++;
-		end++;
-	}
-	return (1);
-}
 
 void	valid_file(t_game *game)
 {
@@ -48,4 +28,17 @@ void	valid_file(t_game *game)
 		exit_game(game, 1, "Error!! Map should be a .cub file\n");
 	}
 	ft_sarfree(str, ft_sarsize(str));
+}
+
+void	open_file(t_game *game)
+{
+	game->map.fd = open(game->data.argv, O_RDONLY);
+	if (game->map.fd == -1)
+		exit_game(game, 1, "Error opening file!!\n");
+}
+
+void	close_file(t_game *game)
+{
+	if (close(game->map.fd) == -1)
+		exit_game(game, 1, "Error closing file!!\n");
 }

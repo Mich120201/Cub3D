@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:50:58 by mich              #+#    #+#             */
-/*   Updated: 2023/05/09 12:22:40 by mvolpi           ###   ########.fr       */
+/*   Updated: 2023/05/16 15:07:07 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,12 @@ int	save_info(char *line, t_game *game)
 	game->count.i = -1;
 	while (line[++game->count.i])
 	{
-	if (!ft_strchr(MAP_CHARS, line[game->count.i]))
-		exit_game(game, 1, "invalid char\n");
+		if (!ft_strchr(MAP_CHARS, line[game->count.i]))
+			exit_game(game, 1, "invalid char\n");
 	}
 	game->count.j = ft_strlen(line);
 	if (game->count.j > game->map.width)
-		game->map.width + game->count.j;
+		game->map.width += game->count.j;
 	if (ft_strlen(line) > 0)
 		game->map.height++;
 	return (0);
@@ -53,9 +53,7 @@ void	take_data(t_game *game)
 {
 	char	*line;
 
-	game->map.fd = open_file(game->data.argv);
-	if (game->map.fd == -1)
-		exit_game(game, 1, "error opening file\n");
+	open_file(game);
 	while(get_next_line(game->map.fd, &line) > 0)
 	{
 		game->map.i = take_line(line, game);
@@ -65,17 +63,39 @@ void	take_data(t_game *game)
 			exit_game(game, 1, "error readind line\n");
 	}
 	free(line);
-	if (close_file(game->map.fd))
-		exit_game(game, 1, "error closing file\n");
+	close_file(game);
 }
 
-int	map_init(t_game *game)
+void	convert_map(t_game *game)
+{
+	game->map.m_int = (int **)malloc(sizeof(int *) * game->map.height);
+	game->count.i = -1;
+	while (++game->count.i < game->map.height)
+	{
+		game->count.j = -1;
+		game->map.m_int[game->count.i] = (int *)malloc(sizeof(int) \
+			* game->map.width);
+		while (++game->count.j < game->map.width)
+		{
+			if (game->map.save_map[game->count.i][game->count.j] == '1')
+				game->map.m_int[game->count.i][game->count.j] = 1;
+			else if (game->map.save_map[game->count.i][game->count.j] == '2')
+				game->map.m_int[game->count.i][game->count.j] = 2;
+			else
+				game->map.m_int[game->count.i][game->count.j] = 0;
+		}
+	}
+}
+
+void	map_init(t_game *game)
 {
 	valid_file(game);
 	take_data(game);
 	read_map(game->data.argv, game);
 	if (!game->map.map)
-		return (0);
+		exit_game(game, 1, "Error malloc map!!\n");
+	game->map.save_map = (char **)malloc(sizeof(char) * game->map.height);
 	control_data(game);
-	return (1);
+	sprites(game);
+	convert_map(game);
 }

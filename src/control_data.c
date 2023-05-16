@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:01:28 by mich              #+#    #+#             */
-/*   Updated: 2023/05/05 15:12:20 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/16 15:03:50 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,20 @@ void	control_data(t_game *game)
 	}
 }
 
+int	convert_color(char **n_color)
+{
+	int	red;
+	int	green;
+	int	blue;
+	int	color_int;
+
+	red = ft_atoi(n_color[0]);
+	green = ft_atoi(n_color[1]);
+	blue = ft_atoi(n_color[2]);
+	color_int = (red << 16) | (green << 8) | blue;
+	return (color_int);
+}
+
 void	control_color(t_game *game)
 {
 	game->count.i = -1;
@@ -66,4 +80,6 @@ void	control_color(t_game *game)
 		if (game->save.c_i < 0 || game->save.c_i > 255)
 			exit_game(game, 1, "Error!! The color value C is invalid!\n");
 	}
+	game->map.sky_color = convert_color(game->save.c);
+	game->map.floor_color = convert_color(game->save.f);
 }

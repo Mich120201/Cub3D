@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map.h                                              :+:      :+:    :+:   */
+/*   minimap.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/26 12:49:47 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 11:00:45 by mich             ###   ########.fr       */
+/*   Created: 2023/05/16 14:43:57 by mich              #+#    #+#             */
+/*   Updated: 2023/05/16 15:00:19 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAP_H
-# define MAP_H
+#ifndef MINIMAP_H
+# define MINIMAP_H
 
 # include "src.h"
 
-/*map.c*/
-void	map_init(t_game *game);
+/*minimap.c*/
+void	minimap_cast(t_game *game);
 
 #endif

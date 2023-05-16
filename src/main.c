@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:44:40 by mich              #+#    #+#             */
-/*   Updated: 2023/05/09 12:05:06 by mvolpi           ###   ########.fr       */
+/*   Updated: 2023/05/16 11:14:10 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,8 @@ int	main(int argc, char **argv)
 
 	init_data(&game, argc, argv);
 	start(&game);
-	// pos_player(&game);
-	// create_game(&game);
+	pos_player(&game);
+	create_game(&game);
 	exit_game(&game, 0, "\n");
 }
 
