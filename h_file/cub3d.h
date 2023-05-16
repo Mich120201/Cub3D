@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:25:34 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 14:58:36 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/16 16:12:12 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -201,9 +201,7 @@ typedef struct s_tile
 typedef struct s_b_sprite
 {
 	int	sprites_n;
-	int	bubble_frame;
-	int	siren_frame;
-	int	coll_frame;
+	int	slime_frame;
 }	t_b_sprite;
 
 typedef struct s_math

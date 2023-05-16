@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mouse.h                                            :+:      :+:    :+:   */
+/*   animation.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/05 12:34:59 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 16:31:35 by mich             ###   ########.fr       */
+/*   Created: 2023/05/16 16:09:51 by mich              #+#    #+#             */
+/*   Updated: 2023/05/16 16:23:08 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MOUSE_H
-# define MOUSE_H
+#ifndef ANIMATION_H
+# define ANIMATION_H
 
 # include "src.h"
 
-/*mouse.c*/
-int		ms_move(int x, int y, t_game *game);
-void	mouse(t_game *game);
+/*animation.c*/
+void	animation(t_game *game);
 
 #endif

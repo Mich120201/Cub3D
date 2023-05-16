@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 12:36:55 by mich              #+#    #+#             */
-/*   Updated: 2023/05/05 14:50:26 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/16 16:30:53 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,23 @@ int	ms_move(int x, int y, t_game *game)
 			+ game->plyr.plane_y * cos(rot_speed);
 	}
 	return (0);
+}
+
+void	unlock(t_game *game)
+{
+	mlx_mouse_show(game->mlx.mlx, game->mlx.win);
+}
+
+void	lock(t_game *game)
+{
+	game->mouse.ms_x = WIDTH / 2;
+	game->mouse.ms_y = HEIGHT / 2;
+}
+
+void	mouse(t_game *game)
+{
+	if (game->mouse.ms_active)
+		lock(game);
+	else
+		unlock(game);
 }

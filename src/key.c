@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:37:06 by mich              #+#    #+#             */
-/*   Updated: 2023/05/05 12:33:12 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/16 16:21:38 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,4 +48,25 @@ int	key_release(int key, t_game *game)
 	else if (key == A_LEFT)
 		game->key.turn_left = 0;
 	return (0);
+}
+
+void	key(t_game *game)
+{
+	if (game->key.k_up)
+		up(game);
+	if (game->key.k_down)
+		down(game);
+	if (game->key.k_right)
+		right(game);
+	if (game->key.k_left)
+		left(game);
+	if (game->key.turn_right)
+		turn_right(game);
+	if (game->key.turn_left)
+		turn_left(game);
+	if (game->key.k_esc)
+		exit_game(game, 0, "YOU WIN!!\n");
+	if (game->key.k_door)
+		door(game);
+	mouse(game);
 }

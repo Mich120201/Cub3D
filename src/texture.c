@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:54:54 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 11:18:18 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/16 16:34:13 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	open_img(t_game *game, int *n_text, char *path)
 	mlx_destroy_image(game->mlx.mlx, game->img.image);
 }
 
-void	put_img(t_game *game)
+void	make_img(t_game *game)
 {
 	open_img(game, game->data.text[0], "sprites/wall_1.xpm");
 	open_img(game, game->data.text[1], "sprites/wall_2.xpm");
@@ -66,5 +66,5 @@ void	put_img(t_game *game)
 void	put_txt(t_game *game)
 {
 	malloc_img(game);
-	put_img(game);
+	make_img(game);
 }

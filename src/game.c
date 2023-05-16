@@ -6,15 +6,33 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:44:27 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 15:06:31 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/16 16:09:32 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game.h"
 
+void	put_img(t_game *game)
+{
+	int	x;
+	int	y;
+
+	y = -1;
+	while (++y < HEIGHT)
+	{
+		x = -1;
+		while (++x < WIDTH)
+			game->img.data[y * WIDTH + x] = game->mlx.buff[y][x];
+	}
+	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, game->img.image, 0, 0);
+}
+
 int	play_game(t_game *game)
 {
 	ray_cast(game);
+	put_img(game);
+	key(game);
+	animation(game);
 	return (0);
 }
 
