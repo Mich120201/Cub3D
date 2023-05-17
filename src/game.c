@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:44:27 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 16:09:32 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/17 10:41:55 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,3 +52,4 @@ void	create_game(t_game *game)
 	mlx_hook(game->mlx.win, MS_MOVE, 0, ms_move, game);
 	mlx_loop(game->mlx.mlx);
 }
+

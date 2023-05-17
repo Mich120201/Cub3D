@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:50:58 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 15:07:07 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/17 10:49:20 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,13 @@ int	take_line(char *line, t_game *game)
 		|| ft_strncmp(line, "C ", 2) == 0)
 	{
 		free(line);
-			return (2);
+		return (0);
 	}
 	else
+	{
 		if (save_info(line, game))
 			return (2);
+	}
 	free(line);
 	return (0);
 }

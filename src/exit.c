@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:27:56 by mich              #+#    #+#             */
-/*   Updated: 2023/05/09 12:06:30 by mvolpi           ###   ########.fr       */
+/*   Updated: 2023/05/17 10:51:13 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	free_all(t_game *game)
 int	exit_game(t_game *game, int n, char *msg)
 {
 	printf("%s", msg);
-	free_all(game);
+	// free_all(game);
+	(void)game;
 	exit(n);
 }
