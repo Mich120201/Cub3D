@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:54:54 by mich              #+#    #+#             */
-/*   Updated: 2023/05/17 10:54:24 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/17 11:20:32 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,13 @@ void	open_img(t_game *game, int *n_text, char *path)
 
 void	make_img(t_game *game)
 {
-	open_img(game, game->data.text[0], "sprites/wall_1.xpm");
-	open_img(game, game->data.text[1], "sprites/wall_2.xpm");
-	open_img(game, game->data.text[2], "sprites/wall_3.xpm");
-	open_img(game, game->data.text[3], "sprites/wall_4.xpm");
-	open_img(game, game->data.text[4], "sprites/door.xpm");
-	open_img(game, game->data.text[5], "sprites/slime.xpm");
-	open_img(game, game->data.text[6], "sprites/slime_2.xpm");
+	open_img(game, game->data.text[0], "sprites/xpm/door.xpm");
+	open_img(game, game->data.text[1], "sprites/xpm/slime_2.xpm");
+	open_img(game, game->data.text[2], "sprites/xpm/slime.xpm");
+	open_img(game, game->data.text[3], "sprites/xpm/wall_1.xpm");
+	open_img(game, game->data.text[4], "sprites/xpm/wall_2.xpm");
+	open_img(game, game->data.text[5], "sprites/xpm/wall_3.xpm");
+	open_img(game, game->data.text[6], "sprites/xpm/wall_4.xpm");
 }
 
 void	put_txt(t_game *game)

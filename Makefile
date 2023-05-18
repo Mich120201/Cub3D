@@ -6,8 +6,8 @@ GREEN			= \033[32m
 BLUE			= \033[34m
 
 NAME			= cub3D
-CC				= gcc
-CFLAGS			= -g -Wall -Wextra -Werror -fcommon
+CC				= gcc -fcommon
+CFLAGS			= -Wall -Wextra -Werror
 RM				= rm -rf
 LIBFT_DIR		= libft
 MLX_LINUX_DIR	= mlx_linux
@@ -21,6 +21,8 @@ MLX_LINUX		= $(MLX_LINUX_DIR)/libmlx_Linux.a
 LIBS			= $(LIBFT)
 SRCS			= $(wildcard $(SRC_DIR)/*.c)
 OBJS			= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+DEBUG_F			= -g -fsanitize=address
+
 
 ifeq ($(OS),Windows_NT) 
     detected_OS := Windows
@@ -101,7 +103,7 @@ grep_leaks:
 
 test: all
 	clear
-	@./$(NAME) maps/default.cub
+	@./$(NAME) ciao.cub
 
 run: test
 rrun: fclean test
@@ -123,7 +125,7 @@ copy:
 backup: copy
 up: copy
 
-sanitize:	re
+sanitize:	re $(OBJS)
 			@$(CC) $(DEBUG_F) $(OBJS) $(LIBFT_A) ${MLX_LIB} -lm -o $(NAME)
 			$(info [Making with fsanitize=address ...])
 
