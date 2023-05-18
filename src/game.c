@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:44:27 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 11:32:36 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:38:10 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void	put_img(t_game *game)
 		while (++x < WIDTH)
 			game->img.data[y * WIDTH + x] = game->mlx.buff[y][x];
 	}
-	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win, 
-			game->img.image, 0, 0);
+	mlx_put_image_to_window(game->mlx.mlx, game->mlx.win,
+		game->img.image, 0, 0);
 }
 
 int	play_game(t_game *game)

@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:54:54 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 11:36:32 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:37:50 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,8 @@ void	open_img(t_game *game, int *n_text, char *path)
 		game->count.j = -1;
 		while (++game->count.j < game->img.img_w)
 			n_text[game->img.img_w * game->count.i + game->count.j]
-				= game->img.data[game->img.img_w * game->count.i + game->count.j];
+				= game->img.data[game->img.img_w
+					* game->count.i + game->count.j];
 	}
 	mlx_destroy_image(game->mlx.mlx, game->img.image);
 }
