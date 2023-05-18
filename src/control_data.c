@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:01:28 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 11:43:31 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 16:41:55 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	control_data(t_game *game)
 			game->count.j++;
 		else if (ft_strncmp(game->map.map[game->count.i], "1", 1) == 0)
 		{
+			printf("cacca\n");
 			if (control_gen(game))
 				return ;
 		}

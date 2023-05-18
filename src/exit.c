@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/04 11:27:56 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 11:31:40 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 15:36:17 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	free_all(t_game *game)
 int	exit_game(t_game *game, int n, char *msg)
 {
 	printf("%s", msg);
-	free_all(game);
+	// free_all(game);
 	(void)game;
 	exit(n);
 }

@@ -125,9 +125,10 @@ copy:
 backup: copy
 up: copy
 
-sanitize:	re $(OBJS)
-			@$(CC) $(DEBUG_F) $(OBJS) $(LIBFT_A) ${MLX_LIB} -lm -o $(NAME)
-			$(info [Making with fsanitize=address ...])
+	# @$(CC) $(DEBUG_F) $(LINKER_MAC) -I $(INCLUDE) $(OBJS) $(LIBS) $(LINKER_LINUX) -o $@
+
+sanitize:	re $(LIBS) $(OBJ_DIR) $(OBJS)
+	@$(CC) $(DEBUG_F) $(LINKER_MAC) -I $(INCLUDE) $(OBJS) $(LIBS) $(LINKER_LINUX) -o $@			$(info [Making with fsanitize=address ...])
 
 tar: clean_mac fclean
 	@tar -cf ../$(NAME).tar .

@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:44:40 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 11:32:46 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 15:58:17 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ t_bool	init_data(t_game *game, int argc, char **argv)
 {
 	if (argc > 2)
 		exit(write(2, "Invald number of arguments\n", 28));
+	ft_bzero(game, sizeof(t_game));
 	game->data.argv = argv[1];
 	game->data.argc = argc;
 	game->mlx.buff = (int **)malloc(sizeof(int *) * HEIGHT);
@@ -29,12 +30,6 @@ t_bool	init_data(t_game *game, int argc, char **argv)
 		while (++game->count.j < WIDTH)
 			game->mlx.buff[game->count.i][game->count.j] = 0;
 	}
-	ft_bzero(&game->map, sizeof(t_map));
-	ft_bzero(&game->img, sizeof(t_image));
-	ft_bzero(&game->plyr, sizeof(t_player));
-	ft_bzero(&game->key, sizeof(t_key));
-	ft_bzero(&game->b_sprite, sizeof(t_b_sprite));
-	ft_bzero(&game->mouse, sizeof(t_mouse));
 	return (TRUE);
 }
 
