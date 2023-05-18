@@ -6,8 +6,8 @@ GREEN			= \033[32m
 BLUE			= \033[34m
 
 NAME			= cub3D
-CC				= gcc -fcommon
-CFLAGS			= -Wall -Wextra -Werror
+CC				= @gcc
+CFLAGS			= -g -Wall -Wextra -Werror -fcommon
 RM				= rm -rf
 LIBFT_DIR		= libft
 MLX_LINUX_DIR	= mlx_linux
