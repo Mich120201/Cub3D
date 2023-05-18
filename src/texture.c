@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:54:54 by mich              #+#    #+#             */
-/*   Updated: 2023/05/17 11:20:32 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:36:32 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	malloc_img(t_game *game)
 	while (++game->count.i < 11)
 	{
 		game->mlx.text[game->count.i] = (int *)malloc(sizeof(int)
-			* (TEXT_SIZE * TEXT_SIZE));
+				* (TEXT_SIZE * TEXT_SIZE));
 		if (!game->mlx.text[game->count.i])
 			exit_game(game, 1, "error during allocation\n");
 	}
@@ -36,18 +36,19 @@ void	malloc_img(t_game *game)
 
 void	open_img(t_game *game, int *n_text, char *path)
 {
-	game->img.image = mlx_xpm_file_to_image(game->mlx.mlx, path, &game->img.img_w, &game->img.img_h);
+	game->img.image = mlx_xpm_file_to_image(game->mlx.mlx, path,
+			&game->img.img_w, &game->img.img_h);
 	if (!game->img.image)
 		exit_game(game, 1, "Texture not found\n");
 	game->img.data = (int *)mlx_get_data_addr(game->img.image, &game->img.pos,
-		&game->img.line_size, &game->img.end);
+			&game->img.line_size, &game->img.end);
 	game->count.i = -1;
 	while (++game->count.i < game->img.img_h)
 	{
 		game->count.j = -1;
 		while (++game->count.j < game->img.img_w)
-			n_text[game->img.img_w * game->count.i + game->count.j] =
-				game->img.data[game->img.img_w * game->count.i + game->count.j];
+			n_text[game->img.img_w * game->count.i + game->count.j]
+				= game->img.data[game->img.img_w * game->count.i + game->count.j];
 	}
 	mlx_destroy_image(game->mlx.mlx, game->img.image);
 }

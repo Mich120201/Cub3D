@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/09 10:40:33 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 15:13:02 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:35:37 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int	n_sprites(t_game *game)
 void	malloc_sprt(t_game *game)
 {
 	game->count.i = -1;
-	game->sprt = (t_sprites **)malloc(sizeof(t_sprites *) 
-		* game->b_sprite.sprites_n);
+	game->sprt = (t_sprites **)malloc(sizeof(t_sprites *)
+			* game->b_sprite.sprites_n);
 	while (++game->count.i < game->b_sprite.sprites_n)
 		game->sprt[game->count.i] = (t_sprites *)malloc(sizeof(t_sprites));
 }
@@ -54,7 +54,7 @@ void	pos_sprites(t_game *game)
 	int	x;
 	int	y;
 	int	pos;
-	
+
 	pos = 0;
 	y = -1;
 	while (game->map.map[++y])

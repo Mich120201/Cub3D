@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:10:19 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 15:46:41 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:36:53 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,13 @@ void	texture(t_game *game, t_math *math)
 {
 	if (game->map.m_int[math->map_x][math->map_y] == 2)
 		math->tex_n = 4;
-	else if (math->side == 0  && math->ray_dir_x < 0
+	else if (math->side == 0 && math->ray_dir_x < 0
 		&& game->map.m_int[math->map_x][math->map_y] == 1)
 		math->tex_n = NORTH;
-	else if (math->side == 0  && math->ray_dir_x >= 0
+	else if (math->side == 0 && math->ray_dir_x >= 0
 		&& game->map.m_int[math->map_x][math->map_y] == 1)
 		math->tex_n = SOUTH;
-	else if (math->side == 1  && math->ray_dir_x < 0)
+	else if (math->side == 1 && math->ray_dir_x < 0)
 		math->tex_n = WEST;
 	else
 		math->tex_n = EAST;

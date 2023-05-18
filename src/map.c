@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:50:58 by mich              #+#    #+#             */
-/*   Updated: 2023/05/17 10:49:20 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:33:13 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	take_data(t_game *game)
 	char	*line;
 
 	open_file(game);
-	while(get_next_line(game->map.fd, &line) > 0)
+	while (get_next_line(game->map.fd, &line) > 0)
 	{
 		game->map.i = take_line(line, game);
 		if (game->map.i == 1)

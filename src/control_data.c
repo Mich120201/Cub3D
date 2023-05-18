@@ -6,11 +6,21 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 13:01:28 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 15:03:50 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:28:05 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "control.h"
+
+int	control_gen(t_game *game)
+{
+	if (game->count.j < 6)
+		exit_game(game, 1, "Error!! One argument missing!!\n");
+	if (game->count.j > 6)
+		exit_game(game, 1, "Error!! Duoble argument!!\n");
+	if (control_map(game, game->count.i))
+		return (1);
+}
 
 void	control_data(t_game *game)
 {
@@ -31,14 +41,8 @@ void	control_data(t_game *game)
 		else if (ft_strncmp(game->map.map[game->count.i], "C", 1) == 0)
 			game->count.j++;
 		else if (ft_strncmp(game->map.map[game->count.i], "1", 1) == 0)
-		{
-			if (game->count.j < 6)
-				exit_game(game, 1, "Error!! One argument missing!!\n");
-			if (game->count.j > 6)
-				exit_game(game, 1, "Error!! Duoble argument!!\n");
-			if (control_map(game, game->count.i))
+			if (control_gen(game))
 				return ;
-		}
 		else if (ft_strncmp(game->map.map[game->count.i], "\0", 2) != 0)
 			exit_game(game, 1, "Invalid argument\n");
 	}

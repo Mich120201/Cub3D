@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:24:23 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 15:44:05 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:35:04 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,17 @@ void	background_cast(t_game *game)
 			else
 				game->mlx.buff[y][x] = game->map.floor_color;
 		}
-		
 	}
 }
 
 void	math_init(t_game *game, t_math *math, int x)
 {
 	math->camera_x = 2 * x
-	/ (double)WIDTH - 1;
-	math->ray_dir_x = game->plyr.dir_x +
-	game->plyr.plane_x * math->camera_x;
-	math->ray_dir_y = game->plyr.dir_y +
-	game->plyr.plane_y * math->camera_x;
+		/ (double)WIDTH - 1;
+	math->ray_dir_x = game->plyr.dir_x
+		+ game->plyr.plane_x * math->camera_x;
+	math->ray_dir_y = game->plyr.dir_y
+		+ game->plyr.plane_y * math->camera_x;
 	math->map_x = (int)game->plyr.pos_x;
 	math->map_y = (int)game->plyr.pos_y;
 	math->delta_dist_x = fabs(1 / math->ray_dir_x);
@@ -51,7 +50,7 @@ void	digit_diff_analysis(t_game *game, t_math *math)
 {
 	while (math->hit == 0)
 	{
-		if (math->side_dist_x 
+		if (math->side_dist_x
 			< math->side_dist_y)
 		{
 			math->side_dist_x += math->delta_dist_x;
@@ -75,7 +74,7 @@ void	wall_cast(t_game *game)
 	t_math	math;
 	int		x;
 	int		y;
-	
+
 	x = -1;
 	while (++x < WIDTH)
 	{

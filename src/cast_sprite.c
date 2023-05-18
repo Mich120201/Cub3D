@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 13:54:24 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 15:02:05 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/18 11:25:32 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,4 +114,3 @@ void	sprites_cast(t_game *game)
 	free(sprite_order);
 	free(sprite_dist);
 }
-
