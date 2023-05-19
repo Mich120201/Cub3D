@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:44:40 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 15:58:17 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/19 12:50:20 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int	main(int argc, char **argv)
 
 	init_data(&game, argc, argv);
 	start(&game);
+	ft_sarprint(game.map.save_map);
 	pos_player(&game);
 	create_game(&game);
 	exit_game(&game, 0, "\n");

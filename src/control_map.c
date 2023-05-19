@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   control_map.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:58:22 by mich              #+#    #+#             */
-/*   Updated: 2023/05/19 10:15:57 by mvolpi           ###   ########.fr       */
+/*   Updated: 2023/05/19 13:01:29 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,11 +62,10 @@ int	control_map(t_game *game, int i)
 {
 	int	c;
 
-	c = 1;
+	c = 0;
 	rectangular_map(game, i);
 	game->map.player = 0;
 	control_fst_lst_line(game->map.map[i], -1, game);
-	game->map.save_map[0] = ft_strdup(game->map.map[i]);
 	while (game->map.map[i] && game->map.map[i + 1] != NULL)
 	{
 		control_line(game->map.map[i], -1, game, i);
@@ -75,7 +74,6 @@ int	control_map(t_game *game, int i)
 		c++;
 	}
 	control_fst_lst_line(game->map.map[i - 1], -1, game);
-	game->map.save_map[c] = ft_strdup(game->map.map[i]);
 	if (game->map.player < 1)
 		exit_game(game, 1, "The player is missing\n");
 	return (1);

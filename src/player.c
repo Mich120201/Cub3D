@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:26:20 by mich              #+#    #+#             */
-/*   Updated: 2023/05/19 10:13:55 by mvolpi           ###   ########.fr       */
+/*   Updated: 2023/05/19 12:50:14 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,15 @@ void	init_buff_plyr(t_game *game)
 	while (++game->count.i < game->map.size_h)
 	{
 		game->map.size_w = -1;
-		while(game->map.m_int[game->count.i][++game->map.size_w] != 8)
+		while(game->map.save_map[game->count.i][++game->map.size_w])
 			;
 		game->count.j = -1;
 		while (++game->count.j < game->map.size_w)
 		{
-			if (game->map.map[game->count.i][game->count.j] == 'N'
-				|| game->map.map[game->count.i][game->count.j] == 'S'
-				|| game->map.map[game->count.i][game->count.j] == 'W'
-				|| game->map.map[game->count.i][game->count.j] == 'E')
+			if (game->map.save_map[game->count.i][game->count.j] == 'N'
+				|| game->map.save_map[game->count.i][game->count.j] == 'S'
+				|| game->map.save_map[game->count.i][game->count.j] == 'W'
+				|| game->map.save_map[game->count.i][game->count.j] == 'E')
 			{
 				game->plyr.pos_x = game->count.j + 0.5;
 				game->plyr.pos_y = game->count.i + 0.5;
