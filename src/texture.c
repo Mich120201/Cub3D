@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   texture.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/05 14:54:54 by mich              #+#    #+#             */
-/*   Updated: 2023/05/19 09:59:57 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/19 10:04:19 by mvolpi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	malloc_img(t_game *game)
 	if (!game->mlx.text)
 		exit_game(game, 1, "error during allocation\n");
 	while (++game->count.i < 3)
-	{l
+	{
 		game->mlx.text[game->count.i] = (int *)malloc(sizeof(int)
 				* (TEXT_SIZE * TEXT_SIZE));
 		if (!game->mlx.text[game->count.i])

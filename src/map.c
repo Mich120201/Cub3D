@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   map.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:50:58 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 11:33:13 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/19 10:12:55 by mvolpi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void	convert_map(t_game *game)
 			else
 				game->map.m_int[game->count.i][game->count.j] = 0;
 		}
+		game->map.m_int[game->count.i][game->count.j] = 8;
 	}
 }
 

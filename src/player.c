@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   player.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
+/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:26:20 by mich              #+#    #+#             */
-/*   Updated: 2023/05/19 09:55:17 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/19 10:13:55 by mvolpi           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	init_buff_plyr(t_game *game)
 	while (++game->count.i < game->map.size_h)
 	{
 		game->map.size_w = -1;
-		while(game->map.map[game->count.i][++game->map.size_w])
+		while(game->map.m_int[game->count.i][++game->map.size_w] != 8)
 			;
 		game->count.j = -1;
 		while (++game->count.j < game->map.size_w)
