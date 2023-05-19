@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 11:24:23 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 16:12:41 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/19 09:58:37 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,8 @@ void	digit_diff_analysis(t_game *game, t_math *math)
 			math->map_y += math->step_y;
 			math->side = 1;
 		}
+		math->map_y = 1;
+		math->map_x = 1;
 		if (game->map.m_int[math->map_y]
 			[math->map_x] > 0)
 			math->hit = 1;

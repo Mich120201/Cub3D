@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:58:22 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 15:05:42 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/19 09:51:08 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ void	rectangular_map(t_game *game, int i)
 		if (game->count.l < game->count.line[game->count.j])
 			game->count.l = game->count.line[game->count.j];
 	}
+	game->map.max_size_w = game->count.l;
 	r_map(game, game->count.i);
 }
 

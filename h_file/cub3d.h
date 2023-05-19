@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/21 11:25:34 by mich              #+#    #+#             */
-/*   Updated: 2023/05/16 16:12:12 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/19 09:50:30 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,9 @@ typedef struct s_map
 	int		height;
 	int		sky_color;
 	int		floor_color;
+	int		size_h;
+	int		size_w;
+	int		max_size_w;
 }	t_map;
 
 typedef struct s_save

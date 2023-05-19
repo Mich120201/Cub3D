@@ -6,19 +6,22 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:26:20 by mich              #+#    #+#             */
-/*   Updated: 2023/05/18 16:46:00 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/19 09:55:17 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "player.h"
 
-void	init_pos(t_game *game)
+void	init_buff_plyr(t_game *game)
 {
 	game->count.i = -1;
-	while (++game->count.i < 3)
+	while (++game->count.i < game->map.size_h)
 	{
+		game->map.size_w = -1;
+		while(game->map.map[game->count.i][++game->map.size_w])
+			;
 		game->count.j = -1;
-		while (++game->count.j < 15)
+		while (++game->count.j < game->map.size_w)
 		{
 			if (game->map.map[game->count.i][game->count.j] == 'N'
 				|| game->map.map[game->count.i][game->count.j] == 'S'
@@ -27,11 +30,9 @@ void	init_pos(t_game *game)
 			{
 				game->plyr.pos_x = game->count.j + 0.5;
 				game->plyr.pos_y = game->count.i + 0.5;
-				printf("%d %d\n", game->count.j, game->count.i);
 			}
 			game->mlx.buff[game->count.i][game->count.j] = 0;
 		}
-		printf("\n");
 	}
 }
 
@@ -71,9 +72,18 @@ void	plyr_dir(t_game *game)
 	}
 }
 
+void	map_size(t_game *game)
+{
+	game->map.size_h = -1;
+	while (game->map.m_int[++game->map.size_h])
+		;
+	game->map.size_w = game->map.max_size_w;
+}
+
 void	pos_player(t_game *game)
 {
-	init_pos(game);
+	map_size(game);
+	init_buff_plyr(game);
 	player_dir(game);
 	plyr_dir(game);
 	game->plyr.movement_s = 0.05;
