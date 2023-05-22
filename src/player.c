@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 15:26:20 by mich              #+#    #+#             */
-/*   Updated: 2023/05/19 12:50:14 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/22 15:01:07 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,13 @@
 void	init_buff_plyr(t_game *game)
 {
 	game->count.i = -1;
-	while (++game->count.i < game->map.size_h)
+	while (++game->count.i < 3)
 	{
 		game->map.size_w = -1;
-		while(game->map.save_map[game->count.i][++game->map.size_w])
-			;
+		// while(game->map.save_map[game->count.i][++game->map.size_w])
+		// 	;
 		game->count.j = -1;
-		while (++game->count.j < game->map.size_w)
+		while (++game->count.j < 15)
 		{
 			if (game->map.save_map[game->count.i][game->count.j] == 'N'
 				|| game->map.save_map[game->count.i][game->count.j] == 'S'

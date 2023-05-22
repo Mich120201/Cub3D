@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mvolpi <mvolpi@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/16 12:10:19 by mich              #+#    #+#             */
-/*   Updated: 2023/05/19 10:18:08 by mvolpi           ###   ########.fr       */
+/*   Updated: 2023/05/22 12:53:30 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,8 +68,8 @@ void	side_wall(t_math *math, t_game *game)
 
 void	texture(t_game *game, t_math *math)
 {
-	// if (game->map.m_int[math->map_x][math->map_y] == 2)
-	// 	math->tex_n = 4;
+	if (game->map.m_int[math->map_x][math->map_y] == 2)
+		math->tex_n = 4;
 	if (math->side == 0 && math->ray_dir_x < 0
 		&& game->map.m_int[math->map_x][math->map_y] == 1)
 		math->tex_n = NORTH;

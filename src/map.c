@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 12:50:58 by mich              #+#    #+#             */
-/*   Updated: 2023/05/19 12:59:19 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/22 14:49:45 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ void	convert_map(t_game *game)
 {
 	game->map.m_int = (int **)malloc(sizeof(int *) * game->map.height);
 	game->count.i = -1;
-	ft_sarprint(game->map.save_map);
 	while (++game->count.i < game->map.height)
 	{
 		game->count.j = -1;
