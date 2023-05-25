@@ -6,14 +6,14 @@ GREEN			= \033[32m
 BLUE			= \033[34m
 
 NAME			= cub3D
-CC				= @gcc
-CFLAGS			= -g -Wall -Wextra -Werror -fcommon
+CC				= gcc
+CFLAGS			= -Wall -Wextra -Werror
 RM				= rm -rf
-LIBFT_DIR		= libft
-MLX_LINUX_DIR	= mlx_linux
-MLX_DIR			= mlx
+LIBFT_DIR		= libs/libft
+MLX_LINUX_DIR	= libs/mlx_linux
+MLX_DIR			= libs/mlx
 INCLUDE			= includes/
-SRC_DIR			= src
+SRC_DIR			= srcs
 OBJ_DIR			= objs
 LIBFT			= $(LIBFT_DIR)/libft.a
 MLX				= $(MLX_DIR)/libmlx.a
@@ -21,8 +21,6 @@ MLX_LINUX		= $(MLX_LINUX_DIR)/libmlx_Linux.a
 LIBS			= $(LIBFT)
 SRCS			= $(wildcard $(SRC_DIR)/*.c)
 OBJS			= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
-DEBUG_F			= -g -fsanitize=address
-
 
 ifeq ($(OS),Windows_NT) 
     detected_OS := Windows
@@ -76,7 +74,7 @@ $(OBJ_DIR)/%.o : $(SRC_DIR)/%.c
 clean:
 	@make -s -C $(LIBFT_DIR) clean
 	@echo "$(YELLOW)[+] libft cleaned$(END)"
-	@make -s -C $(MINILIBX) clean 1> /dev/null
+	@make -s -C libs/$(MINILIBX) clean 1> /dev/null
 	@echo "$(YELLOW)[+] $(MINILIBX) cleaned$(END)"
 	@$(RM) $(OBJ_DIR)
 	@echo "$(YELLOW)[+] $(NAME) cleaned$(END)"
@@ -87,7 +85,7 @@ fclean: clean
 	@$(RM) $(NAME)
 	@echo "$(YELLOW)[+] $(NAME) fcleaned$(END)"
 
-re: fclean $(NAME)
+re: fclean all
 
 
 
@@ -97,13 +95,103 @@ norm:
 	clear
 	@norminette $(LIBFT_DIR) $(INCLUDE) $(SRC_DIR)
 
+test_invalid: all
+	./$(NAME) maps/invalid_0.cub
+	./$(NAME) maps/invalid_1.cub
+	./$(NAME) maps/invalid_2.cub
+	./$(NAME) maps/invalid_3.cub
+	./$(NAME) maps/invalid_4.cub
+	./$(NAME) maps/invalid_5.cub
+	./$(NAME) maps/invalid_6.cub
+	./$(NAME) maps/invalid_7.cub
+	./$(NAME) maps/invalid_8.cub
+	./$(NAME) maps/invalid_9.cub
+	./$(NAME) maps/invalid_10.cub
+	./$(NAME) maps/invalid_11.cub
+	./$(NAME) maps/invalid_12.cub
+	./$(NAME) maps/invalid_13.cub
+	./$(NAME) maps/invalid_color_0.cub
+	./$(NAME) maps/invalid_color_1.cub
+	./$(NAME) maps/invalid_color_2.cub
+	./$(NAME) maps/invalid_color_3.cub
+	./$(NAME) maps/invalid_color_4.cub
+	./$(NAME) maps/invalid_double_player.cub
+	./$(NAME) maps/invalid_key.cub
+	./$(NAME) maps/invalid_no_colors.cub
+	./$(NAME) maps/invalid_no_map.cub
+	./$(NAME) maps/invalid_no_texture.cub
+	./$(NAME) maps/invalid_texture_0.cub
+	./$(NAME) maps/invalid_texture_1.cub
+	./$(NAME) maps/invalid_texture_2.cub
+
+val_invalid: all
+	valgrind --leak-check=full ./$(NAME) maps/invalid_0.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_0.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_1.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_2.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_3.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_4.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_5.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_6.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_7.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_8.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_9.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_10.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_11.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_12.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_13.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_color_0.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_color_1.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_color_2.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_color_3.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_color_4.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_double_player.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_key.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_no_colors.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_no_map.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_no_texture.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_texture_0.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_texture_1.cub
+	valgrind --leak-check=full ./$(NAME) maps/invalid_texture_2.cub
+
+leaks_invalid: all
+	leaks --atExit -- ./$(NAME)
+	leaks --atExit -- ./$(NAME) 1 2
+	leaks --atExit -- ./$(NAME) maps/invalid_0.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_1.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_2.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_3.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_4.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_5.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_6.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_7.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_8.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_9.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_10.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_11.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_12.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_13.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_color_0.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_color_1.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_color_2.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_color_3.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_color_4.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_double_player.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_key.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_no_colors.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_no_map.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_no_texture.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_texture_0.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_texture_1.cub
+	leaks --atExit -- ./$(NAME) maps/invalid_texture_2.cub
+
 grep_leaks:
 	make leaks_invalid | grep "total leaked bytes"
 
 
 test: all
 	clear
-	@./$(NAME) ciao.cub
+	@./$(NAME) maps/default.cub
 
 run: test
 rrun: fclean test
@@ -125,11 +213,6 @@ copy:
 backup: copy
 up: copy
 
-	# @$(CC) $(DEBUG_F) $(LINKER_MAC) -I $(INCLUDE) $(OBJS) $(LIBS) $(LINKER_LINUX) -o $@
-
-sanitize:	re $(LIBS) $(OBJ_DIR) $(OBJS)
-	@$(CC) $(DEBUG_F) $(LINKER_MAC) -I $(INCLUDE) $(OBJS) $(LIBS) $(LINKER_LINUX) -o $@			$(info [Making with fsanitize=address ...])
-
 tar: clean_mac fclean
 	@tar -cf ../$(NAME).tar .
 	@echo "$(GREEN)[+] Made tar$(END)"
@@ -141,5 +224,7 @@ clean_mac:
 
 clean_cache:
 	@rm -rf ~/Library/Caches && rm -rf ~/Library/Application\ Support/Code/Cache && rm -rf ~/Library/Application\ Support/Code/User/workspaceStorage
+
+
 
 .PHONY: all clean fclean re
