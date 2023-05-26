@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cub3d.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-nico <tde-nico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/06 11:51:34 by tde-nico          #+#    #+#             */
-/*   Updated: 2022/09/21 12:52:07 by tde-nico         ###   ########.fr       */
+/*   Created: 2023/05/26 12:40:41 by mich              #+#    #+#             */
+/*   Updated: 2023/05/26 16:01:31 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -218,6 +218,8 @@ typedef struct s_game
 	int			mouse_prev_x;
 	t_minimap	mini;
 	int			door_frame;
+	char		**split_name;
+	char		**name_map;
 }	t_game;
 
 //args_check

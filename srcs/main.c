@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/06 11:27:39 by tde-nico          #+#    #+#             */
-/*   Updated: 2023/05/25 11:41:20 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/26 16:09:17 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,18 @@
 
 int	clean_exit(t_game *game)
 {
+	int	i;
+
 	mlx_clear_window(game->mlx, game->win);
 	mlx_destroy_window(game->mlx, game->win);
 	free_game(game);
-	printf("YOU WIN!!!!!\n");
+	game->name_map = ft_split(game->split_name[0], '/');
+	i = -1;
+	while(game->name_map[1][++i])
+		game->name_map[1][i] = ft_toupper(game->name_map[1][i]);
+	printf("YOU WIN THE %s MAP!!!!!\n", game->name_map[1]);
+	free_matrix(game->split_name);
+	free_matrix(game->name_map);
 	exit(0);
 	return (0);
 }
@@ -35,6 +43,7 @@ int	main(int argc, char **argv)
 	if (check_args(argc, argv))
 		return (1);
 	game.map = read_map(argv[1]);
+	game.split_name = ft_split(argv[1], '.');
 	if (!game.map)
 		return (!INVALID_TESTING);
 	if (start_game(&game))
