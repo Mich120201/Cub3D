@@ -6,7 +6,7 @@
 /*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/26 12:40:41 by mich              #+#    #+#             */
-/*   Updated: 2023/05/26 16:01:31 by mich             ###   ########.fr       */
+/*   Updated: 2023/05/29 09:07:02 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,7 @@
 # include "../libs/mlx_linux/mlx.h"
 # include <fcntl.h>
 # include <math.h>
-
-// Bonus
 # include <sys/time.h>
-
-// Debug
 # include <stdio.h>
 
 // MLX Events
@@ -34,7 +30,7 @@
 # define ON_EXPOSE 12
 # define ON_DESTROY 17
 
-// MLX Keys
+// MLX Mac Keys
 # define K_Q 12
 # define K_W 13
 # define K_E 14
