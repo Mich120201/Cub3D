@@ -3,28 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   start.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tde-nico <tde-nico@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mich <mich@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 09:36:45 by tde-nico          #+#    #+#             */
-/*   Updated: 2022/09/21 09:40:06 by tde-nico         ###   ########.fr       */
+/*   Created: 2023/05/29 09:02:12 by mich              #+#    #+#             */
+/*   Updated: 2023/05/29 09:02:17 by mich             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
-
-/*
-	TEST
-nord	0	-1	-fov	0
-sud		0	1	fov		0
-west	1	0	0		-fov
-east	-1	0	0		fov
-
-	REAL
-nord	0	-1	fov		0
-sud		0	1	-fov	0
-west	-1	0	0		-fov
-east	1	0	0		fov
-*/
 
 void	set_player_view(t_game *game)
 {
